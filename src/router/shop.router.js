@@ -2,9 +2,13 @@ const express = require('express')
 const shopRouter=express.Router();
 const shopModel=require("../model/shop.model");
 
-shopRouter.get("/shopping",(req,res)=>{
+shopRouter.get("/shopping",async(req,res)=>{
     try {
-        let items=shopModel.find();
+      
+
+        let items= await shopModel.find({})
+
+
         return res.send(items)
     } catch (e) {
         return res.send(e)
