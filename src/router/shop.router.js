@@ -2,7 +2,7 @@ const express = require('express')
 const shopRouter=express.Router();
 const shopModel=require("../model/shop.model");
 
-shopRouter.get("/",(req,res)=>{
+shopRouter.get("/shopping",(req,res)=>{
     try {
         let items=shopModel.find();
         return res.send(items)
