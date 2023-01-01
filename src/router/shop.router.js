@@ -3,7 +3,13 @@ const shopRouter=express.Router();
 const shopModel=require("../model/shop.model");
 
 shopRouter.get("/",(req,res)=>{
-    res.send("I'm on")
+    try {
+        let items=shopModel.find();
+        return res.send(items)
+    } catch (e) {
+        return res.send(e)
+
+    }
 })
 
 shopRouter.post("/shopping",async(req,res)=>{
